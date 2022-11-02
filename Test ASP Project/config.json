@@ -1,0 +1,20 @@
+{
+    "Authentication": {
+        "Google": {
+            "ClientId": "699761178134-6arjb44o4nhau7a2bk25p28g2pgl66h4.apps.googleusercontent.com",
+            "ClientSecret": "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"
+        },
+        "Facebook": {
+            "ClientId": "",
+            "ClientSecret": ""
+        },
+        "Microsoft": {
+            "ClientId": "",
+            "ClientSecret": ""
+        },
+        "Twitter": {
+            "ClientId": "",
+            "ClientSecret": ""
+        }
+    }
+}
