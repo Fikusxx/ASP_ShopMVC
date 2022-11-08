@@ -1,0 +1,40 @@
+﻿@model CreateOrderViewModel
+
+@{
+	ViewData["Title"] = "New Order";
+}
+
+<h2 class="text-primary mt-4"> Create Order </h2>
+<hr />
+
+<form asp-controller="Order" asp-action="Create" method="post">
+
+	<div asp-validation-summary="All" class="text-danger"></div>
+
+	<div class="mb-3">
+		<label asp-for="OrderNumber" class="form-label"> Order Name </label>
+		<input asp-for="OrderNumber" class="form-control col-4">
+		<span asp-validation-for="OrderNumber" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="OrderDate" class="form-label"> Date </label>
+		<input asp-for="OrderDate" class="form-control">
+		<span asp-validation-for="OrderDate" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="ProviderId" class="form-label"> Provider </label>
+		<select asp-for="ProviderId" class="form-select" asp-items=@Model.ProvidersSelectList>
+			<option disabled selected> Choose Provider </option>
+		</select>
+		<span asp-validation-for="ProviderId" class="text-danger"></span>
+	</div>
+
+	<button type="submit" class="btn btn-success"> Create </button>
+	<a asp-controller="Order" asp-action="Index" class="btn btn-primary">
+		<i class="fa fa-sign-out-alt"></i> Back
+	</a>
+
+</form>
+

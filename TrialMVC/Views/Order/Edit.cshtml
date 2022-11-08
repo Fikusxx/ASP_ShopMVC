@@ -1,0 +1,42 @@
+﻿@model EditOrderViewModel
+
+@{
+	ViewData["Title"] = "Edit Order";
+}
+
+<h2 class="text-primary mt-4"> Edit Order </h2>
+<hr />
+
+<form asp-controller="Order" asp-action="Edit" method="post">
+
+	<div asp-validation-summary="All" class="text-danger"></div>
+
+	<input type="hidden" asp-for="Id" />
+
+	<div class="mb-3">
+		<label asp-for="Number" class="form-label"> Order Name </label>
+		<input asp-for="Number" class="form-control col-4">
+		<span asp-validation-for="Number" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="Date" class="form-label"> Date </label>
+		<input asp-for="Date" class="form-control">
+		<span asp-validation-for="Date" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="ProviderId" class="form-label"> Provider </label>
+		<select asp-for="ProviderId" class="form-select" asp-items=@Model.ProvidersSelectList>
+			<option disabled selected> Choose Provider </option>
+		</select>
+		<span asp-validation-for="ProviderId" class="text-danger"></span>
+	</div>
+
+	<button type="submit" class="btn btn-success"> <i class="far fa-save"></i> Save </button>
+	<a asp-controller="Order" asp-action="Details" asp-route-id="@Model.Id" class="btn btn-primary">
+		<i class="fa fa-sign-out-alt"></i> Back
+	</a>
+
+</form>
+
