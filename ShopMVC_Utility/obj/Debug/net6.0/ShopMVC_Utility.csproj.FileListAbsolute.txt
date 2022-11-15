@@ -1,0 +1,12 @@
+C:\Projects\ShopMVC_Utility\bin\Debug\net6.0\ShopMVC_Utility.deps.json
+C:\Projects\ShopMVC_Utility\bin\Debug\net6.0\ShopMVC_Utility.dll
+C:\Projects\ShopMVC_Utility\bin\Debug\net6.0\ShopMVC_Utility.pdb
+C:\Projects\ShopMVC_Utility\obj\Debug\net6.0\ShopMVC_Utility.csproj.AssemblyReference.cache
+C:\Projects\ShopMVC_Utility\obj\Debug\net6.0\ShopMVC_Utility.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\ShopMVC_Utility\obj\Debug\net6.0\ShopMVC_Utility.AssemblyInfoInputs.cache
+C:\Projects\ShopMVC_Utility\obj\Debug\net6.0\ShopMVC_Utility.AssemblyInfo.cs
+C:\Projects\ShopMVC_Utility\obj\Debug\net6.0\ShopMVC_Utility.csproj.CoreCompileInputs.cache
+C:\Projects\ShopMVC_Utility\obj\Debug\net6.0\ShopMVC_Utility.dll
+C:\Projects\ShopMVC_Utility\obj\Debug\net6.0\refint\ShopMVC_Utility.dll
+C:\Projects\ShopMVC_Utility\obj\Debug\net6.0\ShopMVC_Utility.pdb
+C:\Projects\ShopMVC_Utility\obj\Debug\net6.0\ref\ShopMVC_Utility.dll

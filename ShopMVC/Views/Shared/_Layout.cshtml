@@ -1,0 +1,115 @@
+﻿@{
+	var sessionCart = Context.Session.Get<List<ShoppingCart>>(WebConstants.SessionCart);
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title> @ViewData["Title"] - ShopMVC </title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-lumen.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css" integrity="sha256-He3QEBKoL/nMXlVsoM7S2C2kjFQqS5L+mgA+F8LpG+U=" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+	<link rel="stylesheet" href="~/FontAwesome/css/all.css" asp-append-version="true" />/>
+	<link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/20.3.56/fluent.css" />
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+			<div class="container-fluid">
+
+				<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+					<img src="~/images/tile.png" width="40%" />
+				</a>
+
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+
+					@await Html.PartialAsync("_LoginPartial")
+
+					<ul class="navbar-nav flex-grow-1">
+
+						<li class="nav-item">
+							<a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"> Home </a>
+						</li>
+
+						@if (User.IsInRole(WebConstants.AdminRole))
+						{
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+									Content Management
+								</a>
+
+								<div class="dropdown-menu" style="">
+									<a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="Index"> Category </a>
+									<a class="dropdown-item" asp-area="" asp-controller="ApplicationType" asp-action="Index"> App Types </a>
+									<a class="dropdown-item" asp-controller="Product" asp-action="Index"> Products </a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register"> Create Admin User </a>
+								</div>
+							</li>
+
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+									Order/Inquiry Management
+								</a>
+
+								<div class="dropdown-menu" style="">
+									<a class="dropdown-item" asp-area="" asp-controller="Inquiry" asp-action="Index"> Inquiry </a>
+									<a class="dropdown-item" asp-area="" asp-controller="Order" asp-action="Index"> Orders </a>
+								</div>
+							</li>
+						}
+
+						<li>
+							@if (sessionCart != null)
+							{
+								<a asp-controller="ShoppingCart" asp-action="Index" class="nav-link">
+									<i class="fas fa-shopping-cart"></i> @sessionCart.Count
+								</a>
+							}
+							else
+							{
+								<a asp-controller="ShoppingCart" asp-action="Index" class="nav-link">
+									<i class="fas fa-shopping-cart"></i> (0)
+								</a>
+							}
+						</li>
+					</ul>
+				</div>
+
+			</div>
+		</nav>
+	</header>
+
+	<div class="container">
+		<main role="main" class="pb-3">
+			@await Html.PartialAsync("_Notifications")
+			@RenderBody()
+		</main>
+	</div>
+
+	<footer class="border-top footer bg-dark">
+		<div class="container text-white-50">
+			&copy; 2022 - ShopMVC
+		</div>
+	</footer>
+
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	<script src="https://cdn.syncfusion.com/ej2/20.3.56/dist/ej2.min.js"></script>
+
+	@await RenderSectionAsync("Scripts", required: false)
+
+	<ejs-scripts></ejs-scripts>
+
+</body>
+</html>
